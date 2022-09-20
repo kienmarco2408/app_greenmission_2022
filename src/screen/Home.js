@@ -9,8 +9,8 @@ import List_news from '../screenComponent/List_news';
 const Home = () => {
   return (
     <SafeAreaView style={{ height: '100%' }}>
-      <ScrollView>
-        <View style={{ paddingBottom: 1050 }}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{ marginBottom: 1050 }}>
           <View
             style={{
               width: '100%',

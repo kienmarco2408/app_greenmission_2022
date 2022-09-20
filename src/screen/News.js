@@ -67,7 +67,7 @@ const News = () => {
         <View style={{ marginLeft: '5%', marginTop: 22, marginBottom: 7 }}>
           <Text>Kết quả tìm kiếm của bạn</Text>
         </View>
-        <View style={{ paddingBottom: 180 }}>
+        <View style={{ marginBottom: '30%' }}>
           <List_news_nav />
         </View>
       </ScrollView>
