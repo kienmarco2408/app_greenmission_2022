@@ -1,6 +1,8 @@
 import { View, Text, SafeAreaView, TextInput } from 'react-native';
 import React from 'react';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
+import List_news_nav from '../screenComponent/List_news_nav';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const News = () => {
   return (
@@ -36,32 +38,39 @@ const News = () => {
           </View>
         </View>
       </View>
-      <View
-        style={{
-          width: '90%',
-          height: 60,
-          backgroundColor: '#F3F9FF',
-          marginTop: 31,
-          padding: 20,
-          marginHorizontal: 20,
-          borderRadius: 8,
-          flexDirection: 'row',
-        }}
-      >
-        <TextInput
-          placeholder="Tập nói"
+      <ScrollView>
+        <View
           style={{
-            fontSize: 16,
             width: '90%',
+            height: 60,
+            backgroundColor: '#F3F9FF',
+            marginTop: 31,
+            padding: 20,
+            marginHorizontal: 20,
+            borderRadius: 8,
+            flexDirection: 'row',
           }}
-        />
-        <Ionicons
-          name="md-search-outline"
-          size={24}
-          color="grey"
-          style={{ bottom: 3 }}
-        />
-      </View>
+        >
+          <TextInput
+            style={{
+              fontSize: 16,
+              width: '90%',
+            }}
+          />
+          <Ionicons
+            name="md-search-outline"
+            size={24}
+            color="grey"
+            style={{ bottom: 3 }}
+          />
+        </View>
+        <View style={{ marginLeft: '5%', marginTop: 22, marginBottom: 7 }}>
+          <Text>Kết quả tìm kiếm của bạn</Text>
+        </View>
+        <View style={{ paddingBottom: 180 }}>
+          <List_news_nav />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
