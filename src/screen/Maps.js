@@ -140,7 +140,7 @@ const Maps = ({ navigation }) => {
             borderTopRightRadius: 30,
           }}
         >
-          <TouchableOpacity onPress={() => navigation.navigate('Collection')}>
+          <TouchableOpacity onPress={() => navigation.push('Collection')}>
             <View>
               <AntDesign name="minus" size={60} />
               <Text style={{ marginBottom: 20 }}>Hiển thị danh sách</Text>

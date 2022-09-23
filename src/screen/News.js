@@ -3,8 +3,10 @@ import React from 'react';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import List_news_nav from '../screenComponent/List_news_nav';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 const News = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView>
       <View

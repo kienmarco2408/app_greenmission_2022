@@ -1,7 +1,9 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const List_location = () => {
+  const navigation = useNavigation();
   const list_maps = [
     {
       id: 1,
@@ -27,28 +29,32 @@ const List_location = () => {
   ];
   return list_maps.map((data, index) => {
     return (
-      <View
+      <TouchableOpacity
         key={data.id}
-        style={{
-          width: 251,
-          height: 100,
-          backgroundColor: '#F1F5E8',
-          borderRadius: 20,
-          marginRight: 12,
-
-          flexDirection: 'row',
-        }}
+        onPress={() => navigation.push('Collect')}
       >
-        <View>
-          <Image source={data.img} />
+        <View
+          style={{
+            width: 251,
+            height: 100,
+            backgroundColor: '#F1F5E8',
+            borderRadius: 20,
+            marginRight: 12,
+
+            flexDirection: 'row',
+          }}
+        >
+          <View>
+            <Image source={data.img} />
+          </View>
+          <View style={{ marginTop: 31, marginLeft: 12 }}>
+            <Text>
+              {data.distance} | {data.time}
+            </Text>
+            <Text>{data.title}</Text>
+          </View>
         </View>
-        <View style={{ marginTop: 31, marginLeft: 12 }}>
-          <Text>
-            {data.distance} | {data.time}
-          </Text>
-          <Text>{data.title}</Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   });
 };

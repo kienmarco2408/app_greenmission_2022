@@ -56,7 +56,7 @@ const List_news_nav = () => {
           <Image source={data.img} style={{ width: 82, height: 90 }} />
         </View>
         <View style={{ marginLeft: 12 }}>
-          <View style={{ width: '98s%', height: 60 }}>
+          <View style={{ width: '98%', height: 60 }}>
             <Text>{data.title}</Text>
           </View>
 

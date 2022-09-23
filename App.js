@@ -13,6 +13,8 @@ import News from './src/screen/News';
 import Challenges from './src/screen/Challenges';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import List_collection from './src/screen/List_collection';
+import Collect from './src/screen/Collect';
+import Done from './src/screen/Done';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -63,6 +65,9 @@ function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Collection" component={List_collection} />
+        <Stack.Screen name="News" component={News} />
+        <Stack.Screen name="Collect" component={Collect} />
+        <Stack.Screen name="Done" component={Done} />
         <Stack.Screen name="Bottom" component={BottomTabScreen} />
       </Stack.Navigator>
     </>

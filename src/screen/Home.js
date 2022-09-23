@@ -1,12 +1,21 @@
-import { View, Text, SafeAreaView, Image, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import { Button } from 'native-base';
 import List_ingredient from '../screenComponent/List_ingredient';
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import List_location from '../screenComponent/List_location';
 import List_news from '../screenComponent/List_news';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ height: '100%' }}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -22,12 +31,18 @@ const Home = () => {
             }}
           >
             <View style={{ flexDirection: 'row', marginTop: 21 }}>
-              <View style={{ marginLeft: '5%' }}>
-                <Image
-                  source={require('../storage/imgs/avt.jpg')}
-                  style={{ width: 65, height: 65, borderRadius: 60 }}
-                />
-              </View>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Challenges')}
+                style={{ marginLeft: '8%' }}
+              >
+                <View>
+                  <Image
+                    source={require('../storage/imgs/avt.jpg')}
+                    style={{ width: 65, height: 65, borderRadius: 60 }}
+                  />
+                </View>
+              </TouchableOpacity>
+
               <View
                 style={{ marginLeft: 5, width: 176, height: 57, marginTop: 5 }}
               >
@@ -98,7 +113,11 @@ const Home = () => {
                 <View
                   style={{ justifyContent: 'center', alignItems: 'center' }}
                 >
-                  <Button size="sm" width="100">
+                  <Button
+                    size="sm"
+                    width="100"
+                    onPress={() => navigation.navigate('Maps')}
+                  >
                     Thu gom
                   </Button>
                 </View>
@@ -125,9 +144,14 @@ const Home = () => {
               }}
             >
               <Text style={{ fontSize: 16 }}>Địa điểm thu gom gần bạn: </Text>
-              <Text style={{ marginLeft: 'auto', fontSize: 12 }}>
-                Xem thêm <Entypo name="chevron-right" />
-              </Text>
+              <TouchableOpacity
+                onPress={() => navigation.push('Collection')}
+                style={{ marginLeft: 'auto' }}
+              >
+                <Text style={{ fontSize: 12 }}>
+                  Xem thêm <Entypo name="chevron-right" />
+                </Text>
+              </TouchableOpacity>
             </View>
 
             <View
@@ -151,11 +175,18 @@ const Home = () => {
               }}
             >
               <Text style={{ fontSize: 16 }}>Tin tức</Text>
-              <Text
-                style={{ marginLeft: 'auto', marginRight: '10%', fontSize: 12 }}
+              <TouchableOpacity
+                onPress={() => navigation.push('News')}
+                style={{ marginLeft: 'auto', marginRight: '10%' }}
               >
-                Xem thêm <Entypo name="chevron-right" />
-              </Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                  }}
+                >
+                  Xem thêm <Entypo name="chevron-right" />
+                </Text>
+              </TouchableOpacity>
             </View>
             <View style={{ marginTop: 20 }}>
               <List_news />
