@@ -15,27 +15,25 @@ const PopupInfor = ({ visible, children }) => {
     }
   };
   return (
-    <Modal transparent visible={showModal}>
+    <Modal transparent visible={true}>
       <View
         style={{
           flex: 1,
-          backgroundColor: 'rgba(0,0,0,0.4)',
+          backgroundColor: 'rgba(0,0,0,0.5)',
           justifyContent: 'center',
           alignItems: 'center ',
         }}
       >
-        <View
-          style={{
-            width: 330.22,
-            height: 270.64,
-            borderRadius: 20.2,
-          }}
-        >
-          {children}
-        </View>
+        <View style={styles.modalcontainer}></View>
       </View>
     </Modal>
   );
 };
 
+const styles = StyleSheet.create({
+  modalcontainer: {
+    width: '80%',
+    backgroundColor: 'white',
+  },
+});
 export default PopupInfor;

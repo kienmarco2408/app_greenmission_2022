@@ -1,5 +1,6 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Modal } from 'react-native';
 import React from 'react';
+import PopupInfor from './PopupInfor';
 
 const List_ingredient = () => {
   const list = [
@@ -26,18 +27,21 @@ const List_ingredient = () => {
   ];
   return list.map((data, index) => {
     return (
-      <View
-        key={data.id}
-        style={{
-          width: 72,
-          height: 106,
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginRight: 16,
-        }}
-      >
-        <Image source={data.img} />
-        <Text style={{ textAlign: 'center' }}>{data.name}</Text>
+      <View>
+        <TouchableOpacity key={data.id}>
+          <View
+            style={{
+              width: 72,
+              height: 106,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginRight: 16,
+            }}
+          >
+            <Image source={data.img} />
+            <Text style={{ textAlign: 'center' }}>{data.name}</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   });

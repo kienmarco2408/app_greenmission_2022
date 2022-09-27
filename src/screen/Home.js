@@ -5,17 +5,24 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Modal,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'native-base';
 import List_ingredient from '../screenComponent/List_ingredient';
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import List_location from '../screenComponent/List_location';
 import List_news from '../screenComponent/List_news';
 import { useNavigation } from '@react-navigation/native';
+import Popup_ingredient from '../screenComponent/Popup_ingredient';
+import PopupInfor from '../screenComponent/PopupInfor';
 
 const Home = () => {
   const navigation = useNavigation();
+
+  const changeModalVisible = (bool) => {
+    setisModalVisible(bool);
+  };
   return (
     <SafeAreaView style={{ height: '100%' }}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -133,7 +140,10 @@ const Home = () => {
                 marginTop: 22,
               }}
             >
-              <List_ingredient />
+              <View style={{ flexDirection: 'row' }}>
+                <PopupInfor></PopupInfor>
+                <List_ingredient />
+              </View>
             </View>
             <View
               style={{

@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, Image, TextInput } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  TextInput,
+  StatusBar,
+} from 'react-native';
 import {
   Button,
   Checkbox,
@@ -15,6 +22,7 @@ const SignIn = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
+      <StatusBar />
       <View>
         <View
           style={{
