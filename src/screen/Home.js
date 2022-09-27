@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react';
 import { Button } from 'native-base';
 import List_ingredient from '../screenComponent/List_ingredient';
-import { Entypo, Ionicons } from '@expo/vector-icons';
+import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import List_location from '../screenComponent/List_location';
 import List_news from '../screenComponent/List_news';
 import { useNavigation } from '@react-navigation/native';
@@ -141,7 +141,8 @@ const Home = () => {
               }}
             >
               <View style={{ flexDirection: 'row' }}>
-                <PopupInfor></PopupInfor>
+                <PopupInfor> </PopupInfor>
+
                 <List_ingredient />
               </View>
             </View>
