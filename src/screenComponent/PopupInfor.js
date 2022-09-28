@@ -1,6 +1,7 @@
 import { View, Text, Modal, Animated, StyleSheet, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Feather } from '@expo/vector-icons';
+import Slider from './Slider';
 
 const PopupInfor = ({ visible, children }) => {
   const [showModal, setShowModal] = React.useState(visible);
@@ -28,23 +29,16 @@ const PopupInfor = ({ visible, children }) => {
         <View style={styles.modalcontainer}>
           <View
             style={{
-              alignItems: 'center',
-              bottom: 240,
               shadowOpacity: 1,
               borderRadius: 20,
+              position: 'absolute',
+              bottom: 256,
+              alignItems: 'center',
             }}
           >
-            <Image
-              source={require('../storage/imgs/list_news/img1.jpg')}
-              style={{
-                width: 330,
-                height: 298,
-                position: 'absolute',
-                borderRadius: 20,
-              }}
-            />
+            <Slider />
           </View>
-          <View style={{ marginTop: 80 }}>
+          <View>
             <Text
               style={{
                 textAlign: 'center',
@@ -74,7 +68,7 @@ const styles = StyleSheet.create({
     height: 362,
     borderRadius: 20,
     elevation: 20,
-    marginTop: 250,
+    marginTop: 200,
   },
 });
 export default PopupInfor;
