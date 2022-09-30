@@ -1,6 +1,6 @@
 import { View, Text, Modal, Animated, StyleSheet, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { Feather } from '@expo/vector-icons';
+import { Entypo, Feather } from '@expo/vector-icons';
 import Slider from './Slider';
 
 const PopupInfor = ({ visible, children }) => {
@@ -27,18 +27,7 @@ const PopupInfor = ({ visible, children }) => {
         }}
       >
         <View style={styles.modalcontainer}>
-          <View
-            style={{
-              shadowOpacity: 1,
-              borderRadius: 20,
-              position: 'absolute',
-              bottom: 256,
-              alignItems: 'center',
-            }}
-          >
-            <Slider />
-          </View>
-          <View>
+          <View style={{ marginTop: 110 }}>
             <Text
               style={{
                 textAlign: 'center',
@@ -51,9 +40,32 @@ const PopupInfor = ({ visible, children }) => {
               Nhựa
             </Text>
           </View>
-          <View style={{ marginTop: 'auto', alignItems: 'center' }}>
-            <Feather name="x-circle" size={30} color="grey" />
+          <View>
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ width: 28, height: 28 }}>
+                <Entypo name="check" />
+              </View>
+              <View>
+                <Text>Các loại nhựa có thể tái chế</Text>
+                <Text>Các loại nhựa có thể tái chế</Text>
+              </View>
+            </View>
+            <View style={{ alignItems: 'center' }}>
+              <Feather name="x-circle" size={30} color="grey" />
+            </View>
           </View>
+        </View>
+
+        <View
+          style={{
+            alignItems: 'center',
+            shadowOpacity: 1,
+            borderRadius: 20,
+            position: 'absolute',
+            bottom: 350,
+          }}
+        >
+          <Slider />
         </View>
       </View>
     </Modal>
@@ -64,11 +76,9 @@ const styles = StyleSheet.create({
   modalcontainer: {
     width: '70%',
     backgroundColor: 'white',
-    paddingHorizontal: 20,
     height: 362,
     borderRadius: 20,
-    elevation: 20,
-    marginTop: 200,
+    marginTop: '50%',
   },
 });
 export default PopupInfor;
