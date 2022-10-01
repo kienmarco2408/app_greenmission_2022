@@ -5,46 +5,43 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  Modal,
-} from 'react-native';
-import React, { useState } from 'react';
-import { Button } from 'native-base';
-import List_ingredient from '../screenComponent/List_ingredient';
-import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
-import List_location from '../screenComponent/List_location';
-import List_news from '../screenComponent/List_news';
-import { useNavigation } from '@react-navigation/native';
-import Popup_ingredient from '../screenComponent/Popup_ingredient';
-import PopupInfor from '../screenComponent/PopupInfor';
+  Modal
+} from "react-native";
+import React, { useState } from "react";
+import { Button } from "native-base";
+import List_ingredient from "../screenComponent/List_ingredient";
+import { Entypo, Feather, Ionicons } from "@expo/vector-icons";
+import List_location from "../screenComponent/List_location";
+import List_news from "../screenComponent/List_news";
+import { useNavigation } from "@react-navigation/native";
+import PopupInfor from "../screenComponent/PopupInfor";
 
 const Home = () => {
   const navigation = useNavigation();
+  const [visible, setVisible] = useState(false);
 
-  const changeModalVisible = (bool) => {
-    setisModalVisible(bool);
-  };
   return (
-    <SafeAreaView style={{ height: '100%' }}>
+    <SafeAreaView style={{ height: "100%" }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginBottom: 1050 }}>
           <View
             style={{
-              width: '100%',
+              width: "100%",
               height: 238,
-              backgroundColor: '#F9BA19',
+              backgroundColor: "#F9BA19",
               borderBottomRightRadius: 15,
               borderBottomLeftRadius: 15,
-              position: 'absolute',
+              position: "absolute"
             }}
           >
-            <View style={{ flexDirection: 'row', marginTop: 21 }}>
+            <View style={{ flexDirection: "row", marginTop: 21 }}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Challenges')}
-                style={{ marginLeft: '8%' }}
+                onPress={() => navigation.navigate("Challenges")}
+                style={{ marginLeft: "8%" }}
               >
                 <View>
                   <Image
-                    source={require('../storage/imgs/avt.jpg')}
+                    source={require("../storage/imgs/avt.jpg")}
                     style={{ width: 65, height: 65, borderRadius: 60 }}
                   />
                 </View>
@@ -72,18 +69,18 @@ const Home = () => {
             </View>
             <View
               style={{
-                width: '85%',
+                width: "85%",
                 height: 180,
-                backgroundColor: '#13A49E',
-                marginHorizontal: '8%',
+                backgroundColor: "#13A49E",
+                marginHorizontal: "8%",
                 marginTop: 11,
                 borderRadius: 25,
-                flexDirection: 'row',
+                flexDirection: "row"
               }}
             >
-              <View style={{ width: 154, height: 120, marginLeft: '10%' }}>
+              <View style={{ width: 154, height: 120, marginLeft: "10%" }}>
                 <Text
-                  style={{ fontSize: 48, lineHeight: 67, textAlign: 'center' }}
+                  style={{ fontSize: 48, lineHeight: 67, textAlign: "center" }}
                 >
                   80%
                 </Text>
@@ -92,17 +89,17 @@ const Home = () => {
                     fontSize: 10,
                     lineHeight: 21,
                     letterSpacing: -0.32,
-                    textAlign: 'center',
+                    textAlign: "center"
                   }}
                 >
                   Hoàn thành để nhận 20 xu
                 </Text>
                 <Text
                   style={{
-                    textAlign: 'center',
+                    textAlign: "center",
                     fontSize: 14,
                     lineHeight: 21,
-                    letterSpacing: -0.32,
+                    letterSpacing: -0.32
                   }}
                 >
                   Thu gom 5kg vỏ nhựa
@@ -111,53 +108,51 @@ const Home = () => {
                   style={{
                     fontSize: 10,
                     lineHeight: 21,
-                    textAlign: 'center',
-                    letterSpacing: -0.32,
+                    textAlign: "center",
+                    letterSpacing: -0.32
                   }}
                 >
                   (4/5kg)
                 </Text>
                 <View
-                  style={{ justifyContent: 'center', alignItems: 'center' }}
+                  style={{ justifyContent: "center", alignItems: "center" }}
                 >
                   <Button
                     size="sm"
                     width="100"
-                    onPress={() => navigation.navigate('Maps')}
+                    onPress={() => navigation.navigate("Maps")}
                   >
                     Thu gom
                   </Button>
                 </View>
               </View>
               <View style={{ marginLeft: 28, bottom: 55 }}>
-                <Image source={require('../storage/imgs/banner.png')} />
+                <Image source={require("../storage/imgs/banner.png")} />
               </View>
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                marginHorizontal: '9%',
-                marginTop: 22,
+                flexDirection: "row",
+                marginHorizontal: "9%",
+                marginTop: 22
               }}
             >
-              <View style={{ flexDirection: 'row' }}>
-                <PopupInfor> </PopupInfor>
-
+              <View style={{ flexDirection: "row" }}>
                 <List_ingredient />
               </View>
             </View>
             <View
               style={{
-                flexDirection: 'row',
+                flexDirection: "row",
                 marginTop: 33,
-                marginHorizontal: '8%',
-                alignItems: 'center',
+                marginHorizontal: "8%",
+                alignItems: "center"
               }}
             >
               <Text style={{ fontSize: 16 }}>Địa điểm thu gom gần bạn: </Text>
               <TouchableOpacity
-                onPress={() => navigation.push('Collection')}
-                style={{ marginLeft: 'auto' }}
+                onPress={() => navigation.push("Collection")}
+                style={{ marginLeft: "auto" }}
               >
                 <Text style={{ fontSize: 12 }}>
                   Xem thêm <Entypo name="chevron-right" />
@@ -167,32 +162,32 @@ const Home = () => {
 
             <View
               style={{
-                marginLeft: '8%',
-                marginTop: 20,
+                marginLeft: "8%",
+                marginTop: 20
               }}
             >
               <ScrollView horizontal={true}>
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{ flexDirection: "row" }}>
                   <List_location />
                 </View>
               </ScrollView>
             </View>
             <View
               style={{
-                flexDirection: 'row',
+                flexDirection: "row",
                 marginTop: 33,
-                marginLeft: '10%',
-                alignItems: 'center',
+                marginLeft: "10%",
+                alignItems: "center"
               }}
             >
               <Text style={{ fontSize: 16 }}>Tin tức</Text>
               <TouchableOpacity
-                onPress={() => navigation.push('News')}
-                style={{ marginLeft: 'auto', marginRight: '10%' }}
+                onPress={() => navigation.push("News")}
+                style={{ marginLeft: "auto", marginRight: "10%" }}
               >
                 <Text
                   style={{
-                    fontSize: 12,
+                    fontSize: 12
                   }}
                 >
                   Xem thêm <Entypo name="chevron-right" />

@@ -5,15 +5,15 @@ import {
   ScrollView,
   ImageStore,
   Image,
-  Dimensions,
-} from 'react-native';
-import React, { useState } from 'react';
+  Dimensions
+} from "react-native";
+import React, { useState } from "react";
 
 const imgs = [
-  'https://www.plasticstoday.com/sites/plasticstoday.com/files/plastic-bottle-recycling-chones-Adobe-1540X800.jpg',
-  'https://polycoplastic.com/wp-content/uploads/2021/03/nhua-pet-la-gi.jpg',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiVqiU613ku9R5OSpbuhaLbgRCMLM_p7sWUw&usqp=CAU',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC2EPxevYnvVJCvdWI8JuK1nvMtXrAfp90rg&usqp=CAU',
+  "https://www.plasticstoday.com/sites/plasticstoday.com/files/plastic-bottle-recycling-chones-Adobe-1540X800.jpg",
+  "https://polycoplastic.com/wp-content/uploads/2021/03/nhua-pet-la-gi.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiVqiU613ku9R5OSpbuhaLbgRCMLM_p7sWUw&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC2EPxevYnvVJCvdWI8JuK1nvMtXrAfp90rg&usqp=CAU"
 ];
 
 const Slider = () => {
@@ -63,20 +63,20 @@ const styles = StyleSheet.create({
   wrap: {
     width: 330,
     height: 283,
-    borderRadius: 20,
+    borderRadius: 20
   },
   wrapDot: {
-    flexDirection: 'row',
-    alignSelf: 'center',
+    flexDirection: "row",
+    alignSelf: "center"
   },
   dotActive: {
     margin: 3,
-    color: 'black',
+    color: "black"
   },
   dot: {
     margin: 3,
-    color: 'white',
-  },
+    color: "white"
+  }
 });
 
 export default Slider;
