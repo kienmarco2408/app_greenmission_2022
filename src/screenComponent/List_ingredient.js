@@ -37,7 +37,7 @@ const List_ingredient = () => {
   ];
   return list.map((data, index) => {
     return (
-      <View>
+      <View key={data.id}>
         <PopupInfor visible={visible}>
           <View style={styles.modalcontainer}>
             <View style={{ marginTop: 110 }}>
