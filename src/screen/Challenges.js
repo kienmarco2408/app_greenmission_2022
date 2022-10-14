@@ -1,35 +1,44 @@
-import { View, Text, SafeAreaView, Image, ScrollView } from 'react-native';
-import { Button } from 'native-base';
-import React from 'react';
-import { FontAwesome } from '@expo/vector-icons';
-import List_change_coin from '../screenComponent/List_change_coin';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
+import { Button } from "native-base";
+import React from "react";
+import { FontAwesome } from "@expo/vector-icons";
+import List_change_coin from "../screenComponent/List_change_coin";
+import { useNavigation } from "@react-navigation/native";
 
 const Challenges = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView>
       <ScrollView>
         <View
           style={{
-            backgroundColor: '#13A49E',
-            width: '100%',
+            backgroundColor: "#13A49E",
+            width: "100%",
             height: 268,
             borderBottomLeftRadius: 50,
             borderBottomRightRadius: 40,
-            position: 'absolute',
+            position: "absolute"
           }}
         >
           <View
             style={{
               marginTop: 58,
-              alignItems: 'center',
+              alignItems: "center"
             }}
           >
             <Image
-              source={require('../storage/imgs/avt.jpg')}
+              source={require("../storage/imgs/avt.jpg")}
               style={{
                 width: 110,
                 height: 110,
-                borderRadius: 100,
+                borderRadius: 100
               }}
             />
           </View>
@@ -37,12 +46,12 @@ const Challenges = () => {
           <Text
             style={{
               marginTop: 5,
-              textAlign: 'center',
+              textAlign: "center",
               fontSize: 16,
               lineHeight: 22.4,
               letterSpacing: 0.2,
-              fontWeight: '600',
-              color: 'white',
+              fontWeight: "600",
+              color: "white"
             }}
           >
             Gia Huy
@@ -53,29 +62,29 @@ const Challenges = () => {
           style={{
             width: 334,
             height: 151,
-            backgroundColor: 'white',
+            backgroundColor: "white",
             borderRadius: 25,
-            marginHorizontal: '10%',
-            marginTop: 209,
+            marginHorizontal: "10%",
+            marginTop: 209
           }}
         >
           <View
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 24,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: 24
             }}
           >
             <Text style={{ fontSize: 20, marginRight: 2 }}>100 xu</Text>
             <View
               style={{
-                backgroundColor: '#F3CC30',
+                backgroundColor: "#F3CC30",
                 width: 49,
                 height: 49,
                 borderRadius: 100,
-                justifyContent: 'center',
-                alignItems: 'center',
+                justifyContent: "center",
+                alignItems: "center"
               }}
             >
               <FontAwesome name="recycle" size={20} />
@@ -85,11 +94,11 @@ const Challenges = () => {
             style={{
               width: 305,
               height: 42,
-              justifyContent: 'center',
-              marginHorizontal: 14,
+              justifyContent: "center",
+              marginHorizontal: 14
             }}
           >
-            <Text style={{ textAlign: 'center' }}>
+            <Text style={{ textAlign: "center" }}>
               Sắp hoàn thành thử thách thu thập 5kg nhựa để nhận thêm 100 xu
               (4.5/5kg)
             </Text>
@@ -98,24 +107,24 @@ const Challenges = () => {
         <View
           style={{
             width: 335,
-            height: 'auto',
-            backgroundColor: '#FFBB00',
-            marginHorizontal: '10%',
+            height: "auto",
+            backgroundColor: "#FFBB00",
+            marginHorizontal: "10%",
             marginTop: 19,
             borderRadius: 11,
-            flexDirection: 'row',
+            flexDirection: "row"
           }}
         >
           <View
             style={{
               width: 34,
               height: 34,
-              backgroundColor: '#5ED780',
+              backgroundColor: "#5ED780",
               borderRadius: 100,
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent: "center",
+              alignItems: "center",
               marginVertical: 16,
-              marginLeft: 10,
+              marginLeft: 10
             }}
           >
             <FontAwesome name="check" size={20} color="white" />
@@ -125,7 +134,7 @@ const Challenges = () => {
               width: 184,
               height: 36,
               marginLeft: 12,
-              marginVertical: 16,
+              marginVertical: 16
             }}
           >
             <Text>Thu gom 5kg vỏ chai thủy tinh trong 7 ngày</Text>
@@ -133,16 +142,16 @@ const Challenges = () => {
           <View
             style={{
               marginVertical: 15,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 'auto',
-              marginRight: 15,
+              justifyContent: "center",
+              alignItems: "center",
+              marginLeft: "auto",
+              marginRight: 15
             }}
           >
             <Text style={{ fontSize: 12 }}>5/5kg</Text>
             <View
               style={{
-                marginTop: 2,
+                marginTop: 2
               }}
             >
               <Button
@@ -160,18 +169,18 @@ const Challenges = () => {
         <View
           style={{
             width: 335,
-            height: 'auto',
-            backgroundColor: '#13A49E',
-            marginHorizontal: '10%',
+            height: "auto",
+            backgroundColor: "#13A49E",
+            marginHorizontal: "10%",
             marginTop: 19,
             borderRadius: 11,
-            flexDirection: 'row',
+            flexDirection: "row"
           }}
         >
           <View
             style={{
               marginVertical: 16,
-              marginLeft: 10,
+              marginLeft: 10
             }}
           >
             <FontAwesome name="recycle" size={34} color="white" />
@@ -181,7 +190,7 @@ const Challenges = () => {
               width: 184,
               height: 36,
               marginLeft: 12,
-              marginVertical: 16,
+              marginVertical: 16
             }}
           >
             <Text>Thu gom 5kg vỏ chai thủy tinh trong 7 ngày</Text>
@@ -189,16 +198,16 @@ const Challenges = () => {
           <View
             style={{
               marginVertical: 15,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 'auto',
-              marginRight: 15,
+              justifyContent: "center",
+              alignItems: "center",
+              marginLeft: "auto",
+              marginRight: 15
             }}
           >
             <Text style={{ fontSize: 12 }}>4.5/5kg</Text>
             <View
               style={{
-                marginTop: 2,
+                marginTop: 2
               }}
             >
               <Button
@@ -216,18 +225,18 @@ const Challenges = () => {
         <View
           style={{
             width: 335,
-            height: 'auto',
-            backgroundColor: '#B8B8B8',
-            marginHorizontal: '10%',
+            height: "auto",
+            backgroundColor: "#B8B8B8",
+            marginHorizontal: "10%",
             marginTop: 19,
             borderRadius: 11,
-            flexDirection: 'row',
+            flexDirection: "row"
           }}
         >
           <View
             style={{
               marginVertical: 16,
-              marginLeft: 10,
+              marginLeft: 10
             }}
           >
             <FontAwesome name="recycle" size={34} color="white" />
@@ -237,7 +246,7 @@ const Challenges = () => {
               width: 184,
               height: 36,
               marginLeft: 12,
-              marginVertical: 16,
+              marginVertical: 16
             }}
           >
             <Text>Thu gom 5kg vỏ chai thủy tinh trong 7 ngày</Text>
@@ -245,16 +254,16 @@ const Challenges = () => {
           <View
             style={{
               marginVertical: 15,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 'auto',
-              marginRight: 15,
+              justifyContent: "center",
+              alignItems: "center",
+              marginLeft: "auto",
+              marginRight: 15
             }}
           >
             <Text style={{ fontSize: 12 }}>0.0/5kg</Text>
             <View
               style={{
-                marginTop: 2,
+                marginTop: 2
               }}
             >
               <Button
@@ -272,18 +281,18 @@ const Challenges = () => {
         <View
           style={{
             width: 335,
-            height: 'auto',
-            backgroundColor: '#B8B8B8',
-            marginHorizontal: '10%',
+            height: "auto",
+            backgroundColor: "#B8B8B8",
+            marginHorizontal: "10%",
             marginTop: 19,
             borderRadius: 11,
-            flexDirection: 'row',
+            flexDirection: "row"
           }}
         >
           <View
             style={{
               marginVertical: 16,
-              marginLeft: 10,
+              marginLeft: 10
             }}
           >
             <FontAwesome name="recycle" size={34} color="white" />
@@ -293,7 +302,7 @@ const Challenges = () => {
               width: 184,
               height: 36,
               marginLeft: 12,
-              marginVertical: 16,
+              marginVertical: 16
             }}
           >
             <Text>Thu gom 5kg vỏ chai thủy tinh trong 7 ngày</Text>
@@ -301,16 +310,16 @@ const Challenges = () => {
           <View
             style={{
               marginVertical: 15,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 'auto',
-              marginRight: 15,
+              justifyContent: "center",
+              alignItems: "center",
+              marginLeft: "auto",
+              marginRight: 15
             }}
           >
             <Text style={{ fontSize: 12 }}>0.0/5kg</Text>
             <View
               style={{
-                marginTop: 2,
+                marginTop: 2
               }}
             >
               <Button
@@ -325,47 +334,48 @@ const Challenges = () => {
             </View>
           </View>
         </View>
-        <View style={{ marginHorizontal: '10%', marginTop: 22 }}>
+        <View style={{ marginHorizontal: "10%", marginTop: 22 }}>
           <Text>Đổi xu</Text>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            <View style={{ flexDirection: 'row', marginTop: 15 }}>
+            <View style={{ flexDirection: "row", marginTop: 15 }}>
               <List_change_coin />
             </View>
           </ScrollView>
         </View>
-        <View style={{ marginHorizontal: '10%', marginTop: 22 }}>
+        <View style={{ marginHorizontal: "10%", marginTop: 22 }}>
           <Text>Giỏ quà của bạn</Text>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            <View style={{ flexDirection: 'row', marginTop: 15 }}>
+
+          <View style={{ flexDirection: "row", marginTop: 15 }}>
+            <TouchableOpacity onPress={() => navigation.navigate("CartGift")}>
               <View
                 style={{
                   width: 133.3,
                   height: 159.56,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  backgroundColor: 'white',
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "white",
                   marginRight: 26.26,
                   borderTopLeftRadius: 20,
-                  borderTopRightRadius: 20,
+                  borderTopRightRadius: 20
                 }}
               >
                 <Image
-                  source={require('../storage/imgs/list_gift/gift1.png')}
+                  source={require("../storage/imgs/list_gift/gift1.png")}
                   style={{
                     width: 133.3,
                     height: 120,
                     borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
+                    borderTopRightRadius: 20
                   }}
                 />
                 <Text>1 vé CGV</Text>
                 <Text>500 xu</Text>
               </View>
-            </View>
-          </ScrollView>
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <View style={{ marginBottom: '25%' }}></View>
+        <View style={{ marginBottom: "25%" }}></View>
       </ScrollView>
     </SafeAreaView>
   );

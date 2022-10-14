@@ -1,8 +1,15 @@
-import { View, Text, SafeAreaView, Image } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  TouchableOpacity
+} from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { Button } from "native-base";
+import List_collection from "./List_collection";
 
 const Done = () => {
   const navigation = useNavigation();
@@ -140,7 +147,12 @@ const Done = () => {
             paddingTop: 5
           }}
         >
-          <Button colorScheme="#13A49E">Done</Button>
+          <Button
+            onPress={() => navigation.push("Collection")}
+            colorScheme="#13A49E"
+          >
+            Done
+          </Button>
         </View>
       </View>
     </SafeAreaView>
