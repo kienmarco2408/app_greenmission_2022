@@ -7,23 +7,23 @@ const List_location = () => {
   const list_maps = [
     {
       id: 1,
-      title: 'Yên Hòa Sunshine',
-      time: '5 phút',
-      distance: '750',
+      title: 'Ngõ 17 Vũ Phạm Hàm, Yên Hoà',
+      time: '2 phút',
+      distance: '180m',
       img: require('../storage/imgs/list_maps/loca1.png'),
     },
     {
       id: 2,
-      title: 'Yên Hòa Sunshine',
-      time: '5 phút',
-      distance: '750',
+      title: 'Ngõ 260 Phố Đội Cấn, Liễu Giai',
+      time: '12 phút',
+      distance: '3.8km',
       img: require('../storage/imgs/list_maps/loca1.png'),
     },
     {
       id: 3,
-      title: 'Yên Hòa Sunshine',
-      time: '5 phút',
-      distance: '750',
+      title: 'French Quarter, Hoàn Kiếm',
+      time: '31 phút',
+      distance: '9.4km',
       img: require('../storage/imgs/list_maps/loca1.png'),
     },
   ];
@@ -51,7 +51,7 @@ const List_location = () => {
             <Text>
               {data.distance} | {data.time}
             </Text>
-            <Text>{data.title}</Text>
+            <Text style={{ width: 135, marginTop: 5 }}>{data.title}</Text>
           </View>
         </View>
       </TouchableOpacity>
