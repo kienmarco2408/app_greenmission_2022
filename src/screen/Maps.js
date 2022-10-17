@@ -205,39 +205,41 @@ const Maps = ({ navigation }) => {
         )}
       >
         {state.markers.map((marker, index) => (
-          <View
-            style={{
-              width: 400,
-              height: 150,
-              backgroundColor: "#F1F5E8",
-              borderRadius: 20,
-              marginBottom: 150,
-              marginLeft: 20,
-            }}
-            key={index}
-          >
+          <TouchableOpacity>
             <View
               style={{
-                alignItems: "center",
+                width: 400,
+                height: 150,
+                backgroundColor: "#F1F5E8",
+                borderRadius: 20,
+                marginBottom: 150,
                 marginLeft: 20,
-                flexDirection: "row",
-                marginTop: 20,
               }}
+              key={index}
             >
-              <View>
-                <Image
-                  source={marker.img}
-                  style={{ width: 120, height: 120 }}
-                />
-              </View>
-              <View style={{ marginTop: 31, marginLeft: 20 }}>
-                <Text>
-                  {marker.distance} | {marker.time}
-                </Text>
-                <Text>{marker.title}</Text>
+              <View
+                style={{
+                  alignItems: "center",
+                  marginLeft: 20,
+                  flexDirection: "row",
+                  marginTop: 20,
+                }}
+              >
+                <View>
+                  <Image
+                    source={marker.img}
+                    style={{ width: 120, height: 120 }}
+                  />
+                </View>
+                <View style={{ marginTop: 31, marginLeft: 20 }}>
+                  <Text>
+                    {marker.distance} | {marker.time}
+                  </Text>
+                  <Text>{marker.title}</Text>
+                </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         ))}
       </Animated.ScrollView>
     </View>
