@@ -32,7 +32,7 @@ const Done = ({ route }) => {
                 name="arrowleft"
                 size={24}
                 color="white"
-                onPress={() => navigation.goBack()}
+                onPress={() => navigation.navigate("Maps")}
               />
             </View>
             <View style={{ marginLeft: 16 }}>

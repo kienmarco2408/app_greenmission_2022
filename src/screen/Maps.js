@@ -16,7 +16,7 @@ import { markers } from "../data/mapData";
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 244;
 const CARD_WIDTH = width * 0.9;
-const SPACING_FOR_CARD_INSET = width * 0.1 - 35;
+const SPACING_FOR_CARD_INSET = width * 0.1 - 20;
 
 const mapStandardStyle = [
   {
@@ -205,17 +205,26 @@ const Maps = ({ navigation }) => {
         )}
       >
         {state.markers.map((marker, index) => (
-          <TouchableOpacity onPress={() => navigation.navigate("Collect")}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Collect", {
+                title: marker.title,
+                time: marker.time,
+                distance: marker.distance,
+                img: marker.img,
+              })
+            }
+            key={index}
+          >
             <View
               style={{
                 width: 400,
                 height: 150,
                 backgroundColor: "#F1F5E8",
                 borderRadius: 20,
-                marginBottom: 150,
+                marginBottom: 90,
                 marginLeft: 20,
               }}
-              key={index}
             >
               <View
                 style={{
