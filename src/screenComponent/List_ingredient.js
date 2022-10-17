@@ -4,7 +4,7 @@ import {
   Image,
   TouchableOpacity,
   Modal,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 import React, { useState } from "react";
 import PopupInfor from "./PopupInfor";
@@ -17,23 +17,23 @@ const List_ingredient = () => {
     {
       id: 1,
       name: "Nhựa",
-      img: require("../storage/imgs/list_ingredient/plastic.png")
+      img: require("../storage/imgs/list_ingredient/plastic.png"),
     },
     {
       id: 2,
       name: "Thủy tinh",
-      img: require("../storage/imgs/list_ingredient/glass.png")
+      img: require("../storage/imgs/list_ingredient/glass.png"),
     },
     {
       id: 3,
       name: "Giấy",
-      img: require("../storage/imgs/list_ingredient/paper.png")
+      img: require("../storage/imgs/list_ingredient/paper.png"),
     },
     {
       id: 4,
       name: "Kim loại",
-      img: require("../storage/imgs/list_ingredient/metal.png")
-    }
+      img: require("../storage/imgs/list_ingredient/metal.png"),
+    },
   ];
   return list.map((data, index) => {
     return (
@@ -47,7 +47,7 @@ const List_ingredient = () => {
                   fontSize: 18,
                   lineHeight: 27,
                   color: "#3D7944",
-                  fontWeight: "700"
+                  fontWeight: "700",
                 }}
               >
                 Nhựa
@@ -58,7 +58,7 @@ const List_ingredient = () => {
                 style={{
                   flexDirection: "row",
                   alignItems: "center",
-                  marginTop: 10
+                  marginTop: 10,
                 }}
               >
                 <View
@@ -70,7 +70,7 @@ const List_ingredient = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     marginLeft: 15,
-                    marginRight: 6
+                    marginRight: 6,
                   }}
                 >
                   <Entypo name="check" size={20} color="white" />
@@ -88,7 +88,7 @@ const List_ingredient = () => {
                 style={{
                   flexDirection: "row",
 
-                  marginTop: 67
+                  marginTop: 67,
                 }}
               >
                 <View
@@ -97,7 +97,7 @@ const List_ingredient = () => {
                     height: 32,
                     borderRadius: 100,
                     marginLeft: 15,
-                    marginRight: 6
+                    marginRight: 6,
                   }}
                 >
                   <Feather
@@ -107,7 +107,7 @@ const List_ingredient = () => {
                     style={{
                       backgroundColor: "red",
                       borderRadius: 100,
-                      alignItems: "center"
+                      alignItems: "center",
                     }}
                   />
                 </View>
@@ -117,7 +117,7 @@ const List_ingredient = () => {
                       lineHeight: 14.63,
                       letterSpacing: 1,
                       width: 183,
-                      height: 50
+                      height: 50,
                     }}
                   >
                     Các loại nhựa không tái chế được, Các loại nhựa không tái
@@ -138,7 +138,7 @@ const List_ingredient = () => {
               shadowOpacity: 1,
               borderRadius: 20,
               position: "absolute",
-              bottom: 350
+              bottom: 350,
             }}
           >
             <Slider />
@@ -152,7 +152,7 @@ const List_ingredient = () => {
               height: 106,
               justifyContent: "center",
               alignItems: "center",
-              marginRight: 16
+              marginRight: 16,
             }}
           >
             <Image source={data.img} />
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: 362,
     borderRadius: 20,
-    marginTop: "50%"
-  }
+    marginTop: "50%",
+  },
 });
 export default List_ingredient;

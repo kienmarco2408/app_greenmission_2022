@@ -3,7 +3,12 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 
-const CodeGift = () => {
+const CodeGift = ({ route }) => {
+  const { img } = route.params;
+  const { name } = route.params;
+  const { content } = route.params;
+  const { note } = route.params;
+  const { coin } = route.params;
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -24,7 +29,7 @@ const CodeGift = () => {
                 lineHeight: 21.94,
                 color: "white",
                 marginLeft: 16,
-                color: "#13A49E"
+                color: "#13A49E",
               }}
             >
               Thử thách
@@ -40,21 +45,19 @@ const CodeGift = () => {
             </Text>
           </View>
           <View style={{ marginTop: 12 }}>
-            <Text style={{ textAlign: "center" }}>
-              1 vé CGV trị giá 125k (suất phim bất kỳ)
-            </Text>
+            <Text style={{ textAlign: "center" }}>{content}</Text>
             <Text style={{ textAlign: "center" }}>
               Thời hạn: 14/09 - 14/12/2022
             </Text>
           </View>
           <View style={{ alignItems: "center", marginTop: 21 }}>
             <Image
-              source={require("../storage/imgs/list_gift/gift1.png")}
+              source={img}
               style={{
                 width: 164,
                 height: 164,
                 borderTopLeftRadius: 20,
-                borderTopRightRadius: 20
+                borderTopRightRadius: 20,
               }}
             />
           </View>
@@ -65,14 +68,12 @@ const CodeGift = () => {
                 width: 198,
                 height: 198,
                 borderTopLeftRadius: 20,
-                borderTopRightRadius: 20
+                borderTopRightRadius: 20,
               }}
             />
           </View>
           <View style={{ width: 305, height: 42, marginTop: 12 }}>
-            <Text style={{ textAlign: "center", fontSize: 14 }}>
-              Đưa mã QR tới bất kỳ cơ sở của CGV để nhận thưởng.
-            </Text>
+            <Text style={{ textAlign: "center", fontSize: 14 }}>{note}</Text>
           </View>
         </View>
       </View>

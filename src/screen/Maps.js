@@ -1,5 +1,5 @@
-import * as React from 'react';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import * as React from "react";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import {
   StyleSheet,
   Text,
@@ -9,32 +9,38 @@ import {
   Animated,
   Platform,
   TouchableOpacity,
-} from 'react-native';
-import { AntDesign, FontAwesome } from '@expo/vector-icons';
-import { markers } from '../data/mapData';
+} from "react-native";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import { markers } from "../data/mapData";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 244;
 const CARD_WIDTH = width * 0.9;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 35;
 
 const mapStandardStyle = [
   {
-    elementType: 'labels.icon',
+    elementType: "labels.icon",
     stylers: [
       {
-        visibility: 'off',
+        visibility: "on",
       },
     ],
   },
 ];
 
 const Maps = ({ navigation }) => {
-  const region = {
-    latitudeDelta: 5,
-    longitudeDelta: 5,
+  const initialMapState = {
+    markers,
+    region: {
+      latitude: 21.0195109,
+      longitude: 105.7973823,
+      latitudeDelta: 0.04864195044303443,
+      longitudeDelta: 0.040142817690068,
+    },
   };
-  const [state, setState] = React.useState(markers, region);
+
+  const [state, setState] = React.useState(initialMapState);
 
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
@@ -43,7 +49,7 @@ const Maps = ({ navigation }) => {
     mapAnimation.addListener(({ value }) => {
       let index = Math.floor(value / CARD_WIDTH + 0.3);
       if (index >= markers.length) {
-        index = state.marker.length - 1;
+        index = state.markers.length - 1;
       }
       if (index <= 0) {
         index = 0;
@@ -58,8 +64,8 @@ const Maps = ({ navigation }) => {
           _map.current.animateToRegion(
             {
               ...coordinate,
-              latitudeDelta: region.latitudeDelta,
-              longitudeDelta: region.longitudeDelta,
+              latitudeDelta: state.region.latitudeDelta,
+              longitudeDelta: state.region.longitudeDelta,
             },
             350
           );
@@ -78,7 +84,7 @@ const Maps = ({ navigation }) => {
     const scale = mapAnimation.interpolate({
       inputRange,
       outputRange: [1, 1.5, 1],
-      extrapolate: 'clamp',
+      extrapolate: "clamp",
     });
     return { scale };
   });
@@ -87,7 +93,7 @@ const Maps = ({ navigation }) => {
     const markerID = mapEventData._targetInst.return.key;
 
     let x = markerID * CARD_WIDTH + markerID * 20;
-    if (Platform.OS === 'ios') {
+    if (Platform.OS === "ios") {
       x = x - SPACING_FOR_CARD_INSET;
     }
 
@@ -96,18 +102,17 @@ const Maps = ({ navigation }) => {
 
   const _map = React.useRef(null);
   const _scrollView = React.useRef(null);
-  const initialMapState = {
-    markers,
-  };
+
   return (
     <View style={styles.container}>
       <MapView
         ref={_map}
+        initialRegion={state.region}
         style={styles.map}
         provider={PROVIDER_GOOGLE}
         customMapStyle={mapStandardStyle}
       >
-        {markers.map((item, index) => {
+        {state.markers.map((marker, index) => {
           const scaleStyle = {
             transform: [
               {
@@ -116,10 +121,14 @@ const Maps = ({ navigation }) => {
             ],
           };
           return (
-            <MapView.Marker key={index} coordinate={item.coordinate}>
+            <MapView.Marker
+              key={index}
+              coordinate={marker.coordinate}
+              onPress={(e) => onMarkerPress(e)}
+            >
               <Animated.View style={[styles.markerWrap]}>
                 <Animated.Image
-                  source={require('../storage/imgs/mark/map_pin.png')}
+                  source={require("../storage/imgs/mark/map_pin.png")}
                   style={[styles.marker, scaleStyle]}
                   resizeMode="cover"
                 />
@@ -127,33 +136,42 @@ const Maps = ({ navigation }) => {
             </MapView.Marker>
           );
         })}
-
-        <View
-          style={{
-            width: '100%',
-            height: 80,
-            backgroundColor: '#13A49E',
-            justifyContent: 'center',
-            alignSelf: 'center',
-            borderBottomLeftRadius: 30,
-            borderBottomRightRadius: 30,
-          }}
-        >
-          <TouchableOpacity onPress={() => navigation.push('Collection')}>
-            <AntDesign name="minus" size={60} style={{ alignSelf: 'center' }} />
-            <Text style={{ marginBottom: 20, alignSelf: 'center' }}>
-              Hiển thị danh sách
-            </Text>
-          </TouchableOpacity>
-        </View>
       </MapView>
+
+      <View
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: 80,
+          backgroundColor: "#13A49E",
+          justifyContent: "center",
+          alignSelf: "center",
+          borderBottomLeftRadius: 30,
+          borderBottomRightRadius: 30,
+        }}
+      >
+        <TouchableOpacity onPress={() => navigation.push("Collection")}>
+          <AntDesign
+            name="minus"
+            size={60}
+            color="white"
+            style={{ alignSelf: "center" }}
+          />
+          <Text
+            style={{ marginBottom: 30, alignSelf: "center", color: "white" }}
+          >
+            Hiển thị danh sách
+          </Text>
+        </TouchableOpacity>
+      </View>
+
       <Animated.ScrollView
         ref={_scrollView}
         horizontal
         scrollEventThrottle={1}
         showsHorizontalScrollIndicator={false}
         style={{
-          position: 'absolute',
+          position: "absolute",
           bottom: 0,
           left: 0,
           right: 0,
@@ -171,7 +189,7 @@ const Maps = ({ navigation }) => {
         }}
         contentContainerStyle={{
           paddingHorizontal:
-            Platform.OS === 'android' ? SPACING_FOR_CARD_INSET : 0,
+            Platform.OS === "android" ? SPACING_FOR_CARD_INSET : 0,
         }}
         onScroll={Animated.event(
           [
@@ -186,18 +204,40 @@ const Maps = ({ navigation }) => {
           { useNativeDriver: true }
         )}
       >
-        {markers.map((marker, index) => (
+        {state.markers.map((marker, index) => (
           <View
             style={{
-              backgroundColor: '#FFF',
-              borderRadius: 6,
-              marginHorizontal: 20,
-              height: 200,
-              width: 375,
+              width: 400,
+              height: 150,
+              backgroundColor: "#F1F5E8",
+              borderRadius: 20,
               marginBottom: 150,
+              marginLeft: 20,
             }}
             key={index}
-          ></View>
+          >
+            <View
+              style={{
+                alignItems: "center",
+                marginLeft: 20,
+                flexDirection: "row",
+                marginTop: 20,
+              }}
+            >
+              <View>
+                <Image
+                  source={marker.img}
+                  style={{ width: 120, height: 120 }}
+                />
+              </View>
+              <View style={{ marginTop: 31, marginLeft: 20 }}>
+                <Text>
+                  {marker.distance} | {marker.time}
+                </Text>
+                <Text>{marker.title}</Text>
+              </View>
+            </View>
+          </View>
         ))}
       </Animated.ScrollView>
     </View>
@@ -207,18 +247,18 @@ const Maps = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height - 85,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height - 10,
   },
   bubble: {
-    flexDirection: 'column',
-    alignSelf: 'flex-start',
-    backgroundColor: '#FFFFFF',
+    flexDirection: "column",
+    alignSelf: "flex-start",
+    backgroundColor: "#FFFFFF",
     borderRadius: 6,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderWidth: 0.5,
     padding: 15,
     width: 150,
@@ -228,16 +268,16 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   arrowBorder: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    borderTopColor: '#007a87',
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    borderTopColor: "#007a87",
     borderWidth: 16,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginTop: -0.5,
   },
   markerWrap: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     width: 50,
     height: 50,
   },
@@ -246,11 +286,11 @@ const styles = StyleSheet.create({
     height: 40,
   },
   arrow: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    borderTopColor: '#FFFFFF',
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    borderTopColor: "#FFFFFF",
     borderWidth: 16,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginTop: -32,
   },
   image: {

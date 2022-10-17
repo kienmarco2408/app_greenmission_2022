@@ -1,45 +1,23 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import { gift } from "../data/listgift";
 
 const List_change_coin = () => {
   const navigation = useNavigation();
-  const gift = [
-    {
-      id: 1,
-      img: require("../storage/imgs/list_gift/gift1.png"),
-      name: "1 vé CGV",
-      coin: "500 xu"
-    },
-    {
-      id: 2,
-      img: require("../storage/imgs/list_gift/gift2.jpg"),
-      name: "Khóa học Yoga",
-      coin: "1000 xu"
-    },
-    {
-      id: 3,
-      img: require("../storage/imgs/list_gift/gift3.jpg"),
-      name: "Gongcha voucher",
-      coin: "600 xu"
-    },
-    {
-      id: 4,
-      img: require("../storage/imgs/list_gift/gift4.jpg"),
-      name: "Terra juice",
-      coin: "300 xu"
-    },
-    {
-      id: 5,
-      img: require("../storage/imgs/list_gift/gift5.jpg"),
-      name: "Gogi voucher",
-      coin: "1000 xu"
-    }
-  ];
+
   return gift.map((data, index) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate("ChangeCoin")}
+        onPress={() =>
+          navigation.navigate("ChangeCoin", {
+            img: data.img,
+            name: data.name,
+            content: data.content,
+            note: data.note,
+            coin: data.coin,
+          })
+        }
         key={data.id}
       >
         <View
@@ -51,7 +29,7 @@ const List_change_coin = () => {
             backgroundColor: "white",
             marginRight: 26.26,
             borderTopLeftRadius: 20,
-            borderTopRightRadius: 20
+            borderTopRightRadius: 20,
           }}
         >
           <Image
@@ -60,7 +38,7 @@ const List_change_coin = () => {
               width: 133.3,
               height: 120,
               borderTopLeftRadius: 20,
-              borderTopRightRadius: 20
+              borderTopRightRadius: 20,
             }}
           />
           <Text>{data.name}</Text>
