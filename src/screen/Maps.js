@@ -205,7 +205,7 @@ const Maps = ({ navigation }) => {
         )}
       >
         {state.markers.map((marker, index) => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Collect")}>
             <View
               style={{
                 width: 400,
