@@ -33,13 +33,12 @@ const BottomTabScreen = () => {
         tabBarShowLabel: true,
         headerShown: false,
         tabBarStyle: {
-          position: "absolute",
-          borderTopColor: "rgba(0, 0, 0, .2)",
+          borderTopColor: "rgba(0, 0, 0, 0.2)",
           height: 88,
-          shadowOpacity: 0.25
+          shadowOpacity: 0.25,
         },
 
-        tabBarIcon: ({ focused, size, color }) => {
+        tabBarIcon: ({ focused, color }) => {
           let iconName;
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
@@ -52,7 +51,7 @@ const BottomTabScreen = () => {
           }
 
           return <Ionicons name={iconName} size={23} color={color} />;
-        }
+        },
       })}
     >
       <Tab.Screen name="Home" component={Home} />

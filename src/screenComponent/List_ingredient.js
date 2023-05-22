@@ -138,7 +138,7 @@ const List_ingredient = () => {
               shadowOpacity: 1,
               borderRadius: 20,
               position: "absolute",
-              bottom: 350,
+              bottom: 400,
             }}
           >
             <Slider />
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: 362,
     borderRadius: 20,
-    marginTop: "50%",
+    marginTop: "60%",
   },
 });
 export default List_ingredient;

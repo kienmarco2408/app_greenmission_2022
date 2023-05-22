@@ -9,6 +9,7 @@ import {
   Animated,
   Platform,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { markers } from "../data/mapData";
@@ -104,7 +105,7 @@ const Maps = ({ navigation }) => {
   const _scrollView = React.useRef(null);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <MapView
         ref={_map}
         initialRegion={state.region}
@@ -148,6 +149,7 @@ const Maps = ({ navigation }) => {
           alignSelf: "center",
           borderBottomLeftRadius: 30,
           borderBottomRightRadius: 30,
+          marginTop: "13%",
         }}
       >
         <TouchableOpacity onPress={() => navigation.push("Collection")}>
@@ -251,7 +253,7 @@ const Maps = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </Animated.ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

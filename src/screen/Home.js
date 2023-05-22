@@ -5,7 +5,8 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  Modal
+  Modal,
+  StyleSheet,
 } from "react-native";
 import React, { useState } from "react";
 import { Button } from "native-base";
@@ -31,7 +32,7 @@ const Home = () => {
               backgroundColor: "#F9BA19",
               borderBottomRightRadius: 15,
               borderBottomLeftRadius: 15,
-              position: "absolute"
+              position: "absolute",
             }}
           >
             <View style={{ flexDirection: "row", marginTop: 21 }}>
@@ -50,16 +51,8 @@ const Home = () => {
               <View
                 style={{ marginLeft: 5, width: 176, height: 57, marginTop: 5 }}
               >
-                <Text
-                  style={{ fontSize: 15, lineHeight: 21, letterSpacing: -0.32 }}
-                >
-                  Chào Gia Huy
-                </Text>
-                <Text
-                  style={{ fontSize: 12, lineHeight: 21, letterSpacing: -0.32 }}
-                >
-                  Đống Đa, Hà Nội, Việt Nam
-                </Text>
+                <Text style={styles.text}>Chào Nguyên Giáp</Text>
+
                 <Text
                   style={{ fontSize: 12, lineHeight: 21, letterSpacing: -0.32 }}
                 >
@@ -75,7 +68,7 @@ const Home = () => {
                 marginHorizontal: "8%",
                 marginTop: 11,
                 borderRadius: 25,
-                flexDirection: "row"
+                flexDirection: "row",
               }}
             >
               <View style={{ width: 154, height: 120, marginLeft: "10%" }}>
@@ -89,7 +82,7 @@ const Home = () => {
                     fontSize: 10,
                     lineHeight: 21,
                     letterSpacing: -0.32,
-                    textAlign: "center"
+                    textAlign: "center",
                   }}
                 >
                   Hoàn thành để nhận 20 xu
@@ -99,7 +92,7 @@ const Home = () => {
                     textAlign: "center",
                     fontSize: 14,
                     lineHeight: 21,
-                    letterSpacing: -0.32
+                    letterSpacing: -0.32,
                   }}
                 >
                   Thu gom 5kg vỏ nhựa
@@ -109,7 +102,7 @@ const Home = () => {
                     fontSize: 10,
                     lineHeight: 21,
                     textAlign: "center",
-                    letterSpacing: -0.32
+                    letterSpacing: -0.32,
                   }}
                 >
                   (4/5kg)
@@ -134,7 +127,7 @@ const Home = () => {
               style={{
                 flexDirection: "row",
                 marginHorizontal: "9%",
-                marginTop: 22
+                marginTop: 22,
               }}
             >
               <View style={{ flexDirection: "row" }}>
@@ -146,7 +139,7 @@ const Home = () => {
                 flexDirection: "row",
                 marginTop: 33,
                 marginHorizontal: "8%",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <Text style={{ fontSize: 16 }}>Địa điểm thu gom gần bạn: </Text>
@@ -163,7 +156,7 @@ const Home = () => {
             <View
               style={{
                 marginLeft: "8%",
-                marginTop: 20
+                marginTop: 20,
               }}
             >
               <ScrollView horizontal={true}>
@@ -177,7 +170,7 @@ const Home = () => {
                 flexDirection: "row",
                 marginTop: 33,
                 marginLeft: "10%",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <Text style={{ fontSize: 16 }}>Tin tức</Text>
@@ -187,7 +180,7 @@ const Home = () => {
               >
                 <Text
                   style={{
-                    fontSize: 12
+                    fontSize: 12,
                   }}
                 >
                   Xem thêm <Entypo name="chevron-right" />
@@ -205,3 +198,7 @@ const Home = () => {
 };
 
 export default Home;
+
+const styles = StyleSheet.create({
+  text: { fontSize: 15, lineHeight: 21, letterSpacing: -0.32 },
+});

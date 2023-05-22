@@ -5,7 +5,7 @@ import {
   SafeAreaView,
   Image,
   StyleSheet,
-  FlatList
+  FlatList,
 } from "react-native";
 import React from "react";
 
@@ -14,10 +14,12 @@ import { FontAwesome } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
 import { Button, Center } from "native-base";
 import { inlineStyles } from "react-native-svg";
+import { useNavigation } from "@react-navigation/native";
 
 const Separator = () => <View style={styles.separator} />;
 
-const DetailNews = ({ navigation, route }) => {
+const DetailNews = ({ route }) => {
+  const navigation = useNavigation();
   const { title } = route.params;
   const { img } = route.params;
   const { view } = route.params;
@@ -97,63 +99,63 @@ const DetailNews = ({ navigation, route }) => {
 };
 const styles = StyleSheet.create({
   pageCSS: {
-    padding: 20
+    padding: 20,
   },
   topNav: {
     width: "100%",
     height: 96,
     backgroundColor: "#13A49E",
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20
+    borderBottomRightRadius: 20,
   },
   topNavTitle: {
     fontSize: 18,
     lineHeight: 21.94,
     color: "white",
     marginLeft: 16,
-    width: 320
+    width: 320,
   },
   banner: {
     width: "100%",
     height: 300,
     alignSelf: "center",
     backgroundColor: "black",
-    borderRadius: 20
+    borderRadius: 20,
   },
   bannerInfo: {
     marginTop: 20,
     marginHorizontal: 20,
     justifyContent: "space-evenly",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   bannerTitle: {
     fontSize: 16,
     letterSpacing: 1,
-    width: "80%"
+    width: "80%",
   },
   bannerView: {
     marginVertical: 4,
     marginHorizontal: 20,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   category: {
     padding: 6,
-    color: "#335EF7"
+    color: "#335EF7",
   },
   separator: {
     marginVertical: 8,
     borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   text: {
     fontSize: 14,
-    marginVertical: 20
+    marginVertical: 20,
   },
   img: {
     width: null,
     flex: 1,
-    height: 250
-  }
+    height: 250,
+  },
 });
 export default DetailNews;

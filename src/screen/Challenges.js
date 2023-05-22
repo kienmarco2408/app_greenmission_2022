@@ -54,7 +54,7 @@ const Challenges = () => {
               color: "white",
             }}
           >
-            Gia Huy
+            Nguyên Giáp
           </Text>
         </View>
 
